@@ -1,5 +1,7 @@
 ### wsl
 
+eval "$(starship init zsh)"
+
 # clip board
 alias pbcopy='clip.exe'
 
