@@ -1,0 +1,6 @@
+shell:
+  program: /Windows/System32/wsl.exe ~
+
+font:
+  normal:
+    family: FiraCode Nerd Font
