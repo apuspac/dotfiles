@@ -3,4 +3,8 @@ shell:
 
 font:
   normal:
-    family: FiraCode Nerd Font
+    family: Cica
+
+
+env:
+  TERM: alacritty
