@@ -4,7 +4,24 @@ shell:
 font:
   normal:
     family: HackGen Console NF
+    style: Regular
+  bold:
+    family: HackGen Console NF
+    style: Bold
+  size: 12.0
 
+window:
+  # 大きさ
+  dimentions:
+    columns: 220
+    lines: 75
+
+  opacity: 0.98
+
+scrolling:
+  history: 10000
+  # scrollの量
+  multipier: 3
 
 env:
   TERM: alacritty
