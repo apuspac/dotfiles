@@ -1,18 +1,22 @@
 ### wsl
 
+eval "$(sheldon source)"
 eval "$(starship init zsh)"
 
 # clip board
 alias pbcopy='clip.exe'
 
-autoload -Uz promptinit
-promptinit
 
 #lsの色 (default:exfxcxdxbxegedabagacad)
 # export LSCOLORS=gxfxcxdxbxegedabagacad
 alias ls="ls --color=auto"
+alias ll="ls --color=auto -l"
+alias la="ls --color=auto -a"
 
 zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
+
+
+
 #### common
 
 # tmux 初回シェル時のみ tmux実行
