@@ -1,25 +1,11 @@
-###### wsl
-
-# clip board
-# alias pbcopy='clip.exe'
-
-
-
-
-
-
-
 ###### ubuntu
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
 
-# prezto
-autoload -Uz promptinit
-promptinit
-prompt pure
 
+# sheldon
+eval "$(sheldon source)"
+
+# starship
+eval "$(starship init zsh)"
 
 # cuda
 export PATH="/usr/local/cuda/bin:$PATH"
@@ -44,9 +30,9 @@ alias backtoh='sudo systemctl start xremap'
 
 
 # tmux 初回シェル時のみ tmux実行
-if [ $SHLVL = 1 ]; then
-  tmux 
-fi
+# if [ $SHLVL = 1 ]; then
+#   tmux 
+# fi
 
 # alias
 alias workspace='cd /media/cafelatte/Lab/workspace'

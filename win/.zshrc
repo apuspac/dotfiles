@@ -1,23 +1,47 @@
-### wsl
-
-eval "$(sheldon source)"
-eval "$(starship init zsh)"
+###### wsl
 
 # clip board
-alias pbcopy='clip.exe'
-
-
-#lsの色 (default:exfxcxdxbxegedabagacad)
-# export LSCOLORS=gxfxcxdxbxegedabagacad
-alias ls="ls --color=auto"
-alias ll="ls --color=auto -l"
-alias la="ls --color=auto -a"
-
-zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
+# alias pbcopy='clip.exe'
 
 
 
-#### common
+
+
+
+
+###### ubuntu
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# prezto
+autoload -Uz promptinit
+promptinit
+prompt pure
+
+
+# cuda
+export PATH="/usr/local/cuda/bin:$PATH"
+export LD_LIBRARY_PATH="/usr/local/cuda/lib64:$LD_LIBRARY_PATH"
+
+
+# pbcopy
+alias pbcopy='xsel --clipboard --input'
+alias pbpaste='xsel --clipboard --output'
+
+
+# poetry path
+export PATH="/home/cafelatte/.local/bin:$PATH"
+fpath+=~/.zfunc
+autoload -Uz compinit && compinit
+
+
+# ctrl-h (ubuntu)
+alias backtoh='sudo systemctl start xremap'
+
+###### common
+
 
 # tmux 初回シェル時のみ tmux実行
 if [ $SHLVL = 1 ]; then
@@ -25,6 +49,7 @@ if [ $SHLVL = 1 ]; then
 fi
 
 # alias
+alias workspace='cd /media/cafelatte/Lab/workspace'
 alias relogin='exec $SHELL -l'
 alias memoryfree='sudo sh -c "echo 3 > /proc/sys/vm/drop_caches"'
 alias vim='nvim'
@@ -42,7 +67,6 @@ alias oj t=''
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SACEHIST=100000
-
 # historyの共有
 setopt share_history
 # 同じコマンドは追加しないand残さない
