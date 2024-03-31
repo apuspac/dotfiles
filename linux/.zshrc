@@ -31,7 +31,7 @@ alias backtoh='sudo systemctl start xremap'
 
 # tmux 初回シェル時のみ tmux実行
 if [ $SHLVL = 1 ]; then
-    tmux
+    tmux attach || tmux new
 fi
 
 # alias
