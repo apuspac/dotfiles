@@ -1,41 +1,35 @@
-###### ubuntu
-
-
 # sheldon
 eval "$(sheldon source)"
 
 # starship
 eval "$(starship init zsh)"
 
-eval "$(dircolors -b)"
-# cuda
-export PATH="/usr/local/cuda/bin:$PATH"
-export LD_LIBRARY_PATH="/usr/local/cuda/lib64:$LD_LIBRARY_PATH"
-
-
+###### ubuntu
 # pbcopy
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 
+# ctrl-h
+alias backtoh='sudo systemctl start xremap'
+
+# cuda
+export PATH="/usr/local/cuda/bin:$PATH"
+export LD_LIBRARY_PATH="/usr/local/cuda/lib64:$LD_LIBRARY_PATH"
 
 # poetry path
 export PATH="/home/cafelatte/.local/bin:$PATH"
 fpath+=~/.zfunc
 
-
-# ctrl-h (ubuntu)
-alias backtoh='sudo systemctl start xremap'
+# alias
+alias workspace='cd /media/cafelatte/Lab/workspace'
 
 ###### common
-
-
 # tmux 初回シェル時のみ tmux実行
 if [ $SHLVL = 1 ]; then
     tmux attach || tmux new
 fi
 
 # alias
-alias workspace='cd /media/cafelatte/Lab/workspace'
 alias relogin='exec $SHELL -l'
 alias memoryfree='sudo sh -c "echo 3 > /proc/sys/vm/drop_caches"'
 alias vim='nvim'
