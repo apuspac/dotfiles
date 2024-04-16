@@ -30,8 +30,7 @@ alias python='python3'
 alias pip='pip3'
 alias ls='ls --color=auto -F'
 alias ll='ls --color=auto -F -a'
-alias latest='cs `ls -t | head -1`'
-
+alias latest='cd `ls -t | head -1`'
 
 # atcoder
 alias ojmake='touch main.cpp'
