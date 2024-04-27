@@ -32,7 +32,6 @@ fi
 # alias
 alias relogin='exec $SHELL -l'
 alias memoryfree='sudo sh -c "echo 3 > /proc/sys/vm/drop_caches"'
-alias vim='nvim'
 alias python='python3'
 alias pip='pip3'
 alias ls='ls --color=auto -F'

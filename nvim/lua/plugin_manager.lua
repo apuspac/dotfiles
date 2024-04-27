@@ -21,7 +21,26 @@ local plugins = {
 }
 
 local option = {
+    ui = {
+        icons = {
+            cmd = "⌘",
+            config = "🛠",
+            event = "📅",
+            ft = "📂",
+            init = "⚙",
+            keys = "🗝",
+            plugin = "🔌",
+            runtime = "💻",
+            require = "🌙",
+            source = "📄",
+            start = "🚀",
+            task = "📌",
+            lazy = "💤 ",
+        },
+    },
+
     checker = {
+        enabled = true; -- pluginのupdate check
     },
     rtp = {
         disabled_plugins = {
