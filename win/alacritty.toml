@@ -6,8 +6,8 @@ size = 10
 
 
 [font.normal]
-# family = "FiraCode Nerd Font"
-family = "HackGen35 Console NF"
+# family = "HackGen35 Console NF"
+family = "Moralerspace Argon NF"
 style = "Regular"
 
 [scrolling]
