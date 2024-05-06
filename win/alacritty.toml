@@ -2,12 +2,12 @@
 TERM = "alacritty"
 
 [font]
-size = 10
+    size = 10.5
 
 
 [font.normal]
-# family = "FiraCode Nerd Font"
-family = "HackGen35 Console NF"
+# family = "HackGen35 Console NF"
+family = "Moralerspace Neon NF"
 style = "Regular"
 
 [scrolling]
