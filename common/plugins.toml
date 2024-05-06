@@ -29,3 +29,11 @@ github = "zsh-users/zsh-completions"
 [plugins.zsh-syntax-highlighting]
 github = "zsh-users/zsh-syntax-highlighting"
 
+
+[plugins.fzf]
+github = "junegunn/fzf"
+apply = ["fzf-install", "fzf-source"]
+
+[templates]
+fzf-install = "{{ dir }}/install --bin > /dev/null \n[[ ! $PATH =~ {{ dir }} ]] && export PATH=\"$PATH:{{ dir }}/bin\"\n"
+fzf-source = "{% for file in files %}source \"{{ file }}\"\n{% endfor %}"

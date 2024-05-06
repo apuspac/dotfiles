@@ -17,6 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {
     spec = {
         { import = "plugins" },
+        { import = "plugins/color" },
     },
 }
 

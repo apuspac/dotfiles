@@ -1,5 +1,10 @@
 vim.g.mapleader = " "     -- Ledar key
 
+vim.opt.winblend = 20
+vim.opt.pumblend = 20
+vim.opt.termguicolors = true  -- true color
+
+
 vim.opt.number = true   -- 番号表示
 -- 特殊文字表示
 vim.opt.list = true
@@ -27,4 +32,5 @@ vim.opt.wrapscan = true         -- 検索が末尾までいったら先頭から
 
 
 vim.opt.clipboard:append({unnamedeplus = true})         -- クリップボード連携
+
 
