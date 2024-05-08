@@ -18,3 +18,8 @@ telescope dependencies
 
 #### fd-find
 `apt install fd-find
+
+
+#### coc-nvim
+node が必要っぽい？
+

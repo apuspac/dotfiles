@@ -2,8 +2,9 @@ return {
     "nvim-treesitter/nvim-treesitter",
     tag = "v0.9.2",
     config = function()
-        require("nvim-treesitter").setup({
-            vim.cmd([[TSUpdate]]),
+        vim.cmd([[TSUpdate]])
+
+        require("nvim-treesitter.configs").setup({
 
             ensure_installed = {
                 "c",
@@ -15,15 +16,15 @@ return {
                 "lua"
             },
 
+            auto_install = true,
+            sync_install = true,
+
             highlight = {
                 enable = true,
                 disable = {
                     -- disable language
-                },
+                }
             },
-
-            auto_install = false,
-
         })
-    end,
+    end
 }
