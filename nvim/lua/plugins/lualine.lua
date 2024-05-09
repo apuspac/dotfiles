@@ -1,3 +1,4 @@
+
 return{
     "nvim-lualine/lualine.nvim",
     dependencies = {
@@ -5,7 +6,11 @@ return{
     },
     config = function()
         require("lualine").setup {
-            -- plugin config
-        }
+            options = {
+                theme = "auto",
+                component_separators = { left = "", right = ""},
+                section_separators = { left = "", right = ""},
+            }
+    }
     end,
 }
