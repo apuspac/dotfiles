@@ -32,5 +32,3 @@ vim.opt.wrapscan = true         -- 検索が末尾までいったら先頭から
 
 
 vim.opt.clipboard:append({unnamedeplus = true})         -- クリップボード連携
-
-

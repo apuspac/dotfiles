@@ -5,7 +5,7 @@ return {
             --basic
             'coc-json',
             'coc-git',
-            'coc-lua',
+            'coc-sumneko-lua',
             'coc-docker',
 
             'coc-clangd',

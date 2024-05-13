@@ -21,5 +21,5 @@ telescope dependencies
 
 
 #### coc-nvim
-node が必要っぽい？
+node が必要っぽいので installしてあげる。
 
