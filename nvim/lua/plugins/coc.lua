@@ -9,7 +9,7 @@ return {
             'coc-docker',
 
             'coc-clangd',
-            -- 'coc-co;ilot',
+            'coc-copilot',
 
         }
     end

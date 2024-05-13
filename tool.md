@@ -22,4 +22,7 @@ telescope dependencies
 
 #### coc-nvim
 node が必要っぽいので installしてあげる。
+`:call coc#util#install()`
 
+#### fean-vim
+fern-action-trashするためには、linuxの場合trash-cliが必要
