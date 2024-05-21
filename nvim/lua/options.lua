@@ -1,4 +1,8 @@
+local vim = vim
 vim.g.mapleader = " "     -- Ledar key
+
+
+------- options
 
 vim.opt.winblend = 20
 vim.opt.pumblend = 20
@@ -32,3 +36,14 @@ vim.opt.wrapscan = true         -- 検索が末尾までいったら先頭から
 
 
 vim.opt.clipboard:append({unnamedeplus = true})         -- クリップボード連携
+
+
+------ coc.nvim
+vim.opt.encoding = 'utf-8'
+
+-- backupファイルにissueがあるらしい
+vim.opt.backup = false
+vim.opt.writebackup = false
+
+vim.opt.updatetime = 300 -- swapファイルの保存間隔
+vim.opt.signcolumn = "yes" -- symbolcolumn の表示
