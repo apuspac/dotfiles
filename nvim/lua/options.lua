@@ -37,8 +37,10 @@ vim.opt.wrapscan = true         -- 検索が末尾までいったら先頭から
 
 vim.opt.clipboard:append({unnamedeplus = true})         -- クリップボード連携
 
+-- vim.opt.hidden = true           -- 非表示バッファを閉じるときに保存する
 
------- coc.nvim
+
+------ coc.nvim で やれって言われてる設定
 vim.opt.encoding = 'utf-8'
 
 -- backupファイルにissueがあるらしい
@@ -47,3 +49,13 @@ vim.opt.writebackup = false
 
 vim.opt.updatetime = 300 -- swapファイルの保存間隔
 vim.opt.signcolumn = "yes" -- symbolcolumn の表示
+
+
+-- telescope 勝手にinsertモードになる問題
+vim.api.nvim_create_autocmd("WinLeave", {
+  callback = function()
+    if vim.bo.ft == "TelescopePrompt" and vim.fn.mode() == "i" then
+      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "i", false)
+    end
+  end,
+})

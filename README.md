@@ -1,30 +1,61 @@
 # dotfiles
 
-wsl含めたwin環境と、ubuntuのみの2つで分けてる。たぶんmacも加わりそうかも。
+wsl含めたwin環境と、ubuntuのみの2つで分けている。
+変更するときにシンボリックリンク外れちゃうので、場所の移動は慎重に。
 
-設定共通で使えそうなやつはそのまま置いてるけど。 変更するときにシンボリックリンク外れちゃうので、場所の移動は慎重に。
 
-ここらへんの設定はシェルでまとめたい。
+以下の内容を自動化できるようにする(予定)
+
+## zsh + sheldon + starship
+zsh と shell change
+```
+sudo apt install zsh
+chsh -s $(which zsh)
+
+```
+
+起動後に出てくるinit処理はquitする。
+
+cargo install
+[cargo install](https://doc.rust-lang.org/cargo/getting-started/installation.html)
+```
+curl https://sh.rustup.rs -sSf | sh
+```
+
+sheldon, starship
+```
+cargo install sheldon
+curl -sS https://starship.rs/install.sh | sh
+
+```
+
+
+
+
+## symbolic link 
+```
+ln -s ~/dotfiles/linux/.zshrc ~/.zshrc
+ln -s ~/dotfiles/common/.tmux.conf ~/.config/tmux/tmux.conf
+ln -s ~/dotfiles/common/plugins.toml ~/.config/sheldon/plugins.toml
+ln -s ~/dotfiles/common/starship.toml ~/.config/starship.toml
+```
+
 
 
 dotfilesで管理したい設定ファイルが出てきたら。
 
-ex: .zshrc
-
-dotfilesにcp 
-
-今の設定を退避させて移動 mv 
+dotfilesにcpして 元のファイルを削除してから、
 シンボリックリンクを貼る
 ```
-ln -s ~/dotfiles/.zshrc ~
+cp ~/.zshrc ~/dotfiles/path/to/.zshrc
+ln -s ~/dotfiles/path/to/.zshrc ~
 ```
 
-こんな感じ。
 
-winでシンボリックリンク作るときは、リンクを起きたい階層に移動して
+winでシンボリックリンク作る
 ```
-mklink ファイルの名前 リンク元のファイルの場所
-mklink .wslconfig \path\dotfiles\win\.wslconfig
+mklink linkファイル target(リンク元)のファイル
+mklink \path\.wslconfig \path\dotfiles\win\.wslconfig
 ```
 
 
@@ -43,7 +74,12 @@ chmod u+x nvim.appimage && ./nvim.appimage
 ln -s ~/Applications/nvim.appimage ~/.local/bin/nvim
 ```
 
-configファイルは、ディレクトリをシンボリックリンク
+configファイルは、ディレクトリをリンクする
 ```
 ln -s ~/dotfiles/nvim ~/.config/nvim
 ```
+
+
+## font
+今は、 これがすき。
+[moralerspace](https://github.com/yuru7/moralerspace)
