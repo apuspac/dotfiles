@@ -39,24 +39,27 @@ vim.opt.clipboard:append({unnamedeplus = true})         -- クリップボード
 
 -- vim.opt.hidden = true           -- 非表示バッファを閉じるときに保存する
 
+
+vim.opt.makeprg='cd build && make'
 -- project 固有の設定
-local function vimrc_local(loc)
-    local files = vim.fn.findfile('.vim/init_local.lua', vim.fn.escape(loc, ' ') .. ';', -1)
-    for i = #files, 1, -1 do
-        if vim.fn.filereadable(files[i]) == 1 then
-            vim.cmd('source ' .. files[i])
-        end
-    end
-end
-
-vim.api.nvim_create_augroup('vimrc_local', {clear = true})
-vim.api.nvim_create_autocmd({"BufNewFile", "BufReadPost"},{
-    group = 'vimrc_local',
-    callback = function()
-        vimrc_local(vim.fn.expand('<afile>:p:h'))
-    end
-})
-
+-- 起動がめちゃ遅くなったので コメントアウト
+-- local function vimrc_local(loc)
+--     local files = vim.fn.findfile('.vim/init_local.lua', vim.fn.escape(loc, ' ') .. ';', -1)
+--     for i = #files, 1, -1 do
+--         if vim.fn.filereadable(files[i]) == 1 then
+--             vim.cmd('source ' .. files[i])
+--         end
+--     end
+-- end
+--
+-- vim.api.nvim_create_augroup('vimrc_local', {clear = true})
+-- vim.api.nvim_create_autocmd({"BufNewFile", "BufReadPost"},{
+--     group = 'vimrc_local',
+--     callback = function()
+--         vimrc_local(vim.fn.expand('<afile>:p:h'))
+--     end
+-- })
+--
 
 
 
