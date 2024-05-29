@@ -92,11 +92,9 @@ export NVM_DIR="$HOME/.nvm"
 
 
 ##### fzf
-alias nfzf='nvim $(fzf-tmux -p 80% --multi --preview "bat {}")'
+alias nfzf='nvim $(fzf-tmux -p 80% --multi --preview "bat --color=always --style=numbers --line-range=:500 {}")'
 
 # C-t option
-# Using highlight (http://www.andre-simon.de/doku/highlight/en/highlight.html)
-export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
+export FZF_CTRL_T_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+export FZF_CTRL_T_OPTS='--select-1 --exit-0 --preview "bat --color=always --style=numbers --line-range :500 {}"'
 
-# 1個だけならそれを開き、0であればfzfから抜ける
-export FZF_CTRL_T_OPTS="--select-1 --exit-0"

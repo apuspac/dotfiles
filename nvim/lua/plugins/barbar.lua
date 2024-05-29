@@ -14,8 +14,8 @@ return{
     config = function ()
         vim.g.barbar_auto_setup = false
 
-        vim.keymap.set("n", "[b", [[:BufferPrevious<CR>]], { noremap = true })
-        vim.keymap.set("n", "]b", [[:BufferNext<CR>]], { noremap = true })
-        vim.keymap.set("n", "[d", [[:BufferClose<CR>]], { noremap = true })
+        vim.keymap.set("n", "[b", [[:BufferPrevious<CR>]], { noremap = true, silent = true})
+        vim.keymap.set("n", "]b", [[:BufferNext<CR>]], { noremap = true, silent = true})
+        vim.keymap.set("n", "[d", [[:BufferClose<CR>]], { noremap = true, silent = true})
     end,
 }

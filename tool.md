@@ -1,5 +1,18 @@
 # nvim plugin
 
+## fzf
+sheldon で installされる。
+
+
+
+## bat
+highlight command
+```
+sudo dpkg -ibat_0.18.3_amd64.deb  # adapt version number and architecture
+```
+dependencies fzf
+
+
 ## live_grep(ripgrep)
 [rip_grep](https://github.com/BurntSushi/ripgrep)
 Debianは dpkgでインストールっぽい。
@@ -8,17 +21,20 @@ $ curl -LO https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgre
 $ sudo dpkg -i ripgrep_13.0.0_amd64.deb
 ```
 
-telescope dependencies
+dependencies telescope, fzf
+
+
 
 ## pynvim
 `python3 -m pip install --user --upgrade pynvim`
-telescope dependencies
+dependencies telescope 
 
 
-## fd-find
+## fd
 `apt install fd-find`
+`ln -s $(witch fdfind) ~/.local/bin/fd`
 
-telescope dependencies
+dependencies telescope 
 
 ## coc-nvim
 node が必要っぽいので installしてあげる。

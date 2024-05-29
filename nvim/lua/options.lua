@@ -40,17 +40,6 @@ vim.opt.clipboard:append({unnamedeplus = true})         -- クリップボード
 -- vim.opt.hidden = true           -- 非表示バッファを閉じるときに保存する
 
 
------- coc.nvim で やれって言われてる設定
-vim.opt.encoding = 'utf-8'
-
--- backupファイルにissueがあるらしい
-vim.opt.backup = false
-vim.opt.writebackup = false
-
-vim.opt.updatetime = 300 -- swapファイルの保存間隔
-vim.opt.signcolumn = "yes" -- symbolcolumn の表示
-
-
 -- telescope 勝手にinsertモードになる問題
 vim.api.nvim_create_autocmd("WinLeave", {
   callback = function()
