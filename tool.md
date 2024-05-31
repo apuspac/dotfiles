@@ -8,7 +8,7 @@ sheldon で installされる。
 ## bat
 highlight command
 ```
-sudo dpkg -ibat_0.18.3_amd64.deb  # adapt version number and architecture
+sudo dpkg -i bat_0.18.3_amd64.deb  # adapt version number and architecture
 ```
 dependencies fzf
 
@@ -27,17 +27,17 @@ dependencies telescope, fzf
 
 ## pynvim
 `python3 -m pip install --user --upgrade pynvim`
-dependencies telescope 
+dependencies telescope
 
 
 ## fd
 `apt install fd-find`
-`ln -s $(witch fdfind) ~/.local/bin/fd`
+`ln -s $(which fdfind) ~/.local/bin/fd`
 
 dependencies telescope 
 
 ## coc-nvim
-node が必要っぽいので installしてあげる。
+node が必要っぽいので installしてから次を実行。
 `:call coc#util#install()`
 
 ## fean-vim(使ってない)
