@@ -3,9 +3,9 @@ local vim = vim
 -- auto complete
 -- vim.keymap.set("i", "{", "{}<Left>", { noremap = true, silent = true })
 -- vim.keymap.set("i", "[", "[]<Left>", { noremap = true, silent = true })
-vim.keymap.set("i", "(", "()<Left>", { noremap = true, silent = true })
-vim.keymap.set("i", "'", "''<Left>", { noremap = true, silent = true })
-vim.keymap.set("i", '"', '""<Left>', { noremap = true, silent = true })
+-- vim.keymap.set("i", "(", "()<Left>", { noremap = true, silent = true })
+-- vim.keymap.set("i", "'", "''<Left>", { noremap = true, silent = true })
+-- vim.keymap.set("i", '"', '""<Left>', { noremap = true, silent = true })
 
 -- buffer move
 -- barbar.nvim で代用
