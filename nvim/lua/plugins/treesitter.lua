@@ -13,7 +13,9 @@ return {
                 "vim",
                 "vimdoc",
                 "query",
-                "lua"
+                "lua",
+                "typescript",
+                "tsx"
             },
 
             auto_install = true,

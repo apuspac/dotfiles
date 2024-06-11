@@ -10,6 +10,7 @@ return {
 
             'coc-clangd',
             'coc-copilot',
+            'coc-tsserver',
 
         }
 
@@ -142,6 +143,7 @@ return {
         -- Remap <C-f> and <C-b> to scroll float windows/popups
         ---@diagnostic disable-next-line: redefined-local
         --- C-d, C-u 派なので、こっちはpopupのスクロールになりそう
+        --- うごかない。
         local opts = {silent = true, nowait = true, expr = true}
         vim.keymap.set("n", "<C-f>", 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-f>"', opts)
         vim.keymap.set("n", "<C-b>", 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"', opts)
@@ -194,6 +196,12 @@ return {
         vim.keymap.set("n", "<space>k", ":<C-u>CocPrev<cr>", opts)
         -- Resume latest coc list
         vim.keymap.set("n", "<space>p", ":<C-u>CocListResume<cr>", opts)
+
+
+        vim.keymap.set('i', '<C-l>', '<Plug>(coc-snippets-expand)', { noremap = true, silent = true })
+
+        -- Use <C-j> for select text for visual placeholder of snippet.
+        vim.keymap.set('v', '<C-j>', '<Plug>(coc-snippets-select)', { noremap = true, silent = true })
 
     end
 }

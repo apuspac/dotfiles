@@ -24,6 +24,7 @@ return {
 
                 pickers = {
                     find_files = {
+                        hidden = true,
                         -- theme = "ivy",
                     }
                 }
@@ -35,7 +36,8 @@ return {
                     override_generic_sorter = true,
                     override_file_sorter = true,
                     case_mode = "smart_case",
-                }
+                },
+
             }
         }
 
