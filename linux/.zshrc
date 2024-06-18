@@ -103,3 +103,9 @@ alias nfzf='nvim $(fzf-tmux -p 80% --multi --preview "bat --color=always --style
 export FZF_CTRL_T_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 export FZF_CTRL_T_OPTS='--select-1 --exit-0 --preview "bat --color=always --style=numbers --line-range :500 {}"'
 
+fd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
+}
