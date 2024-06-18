@@ -33,6 +33,8 @@ alias ls='ls --color=auto -F'
 alias ll='ls --color=auto -F -a'
 alias latest='cd `ls -t | head -1`'
 alias img='irfanview'
+alias expl='explorer.exe'
+
 
 # atcoder
 alias ojmake='touch main.cpp'
