@@ -1,8 +1,10 @@
 #!/usr/bin/env perl
 
 # LaTeX
-$latex = 'platex -synctex=1 -halt-on-error -file-line-error %O %S';
+$latex = 'lualatex -synctex=1 -halt-on-error -file-line-error %O %S';
 $max_repeat = 5;
+
+# $lualatex = 'lualatex -synctex=1 -halt-on-error -file-line-error -interaction=nonstopmode %O %S';
 
 # BibTeX
 $bibtex = 'pbibtex %O %S';
