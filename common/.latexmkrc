@@ -1,34 +1,44 @@
 #!/usr/bin/env perl
 
-# LaTeX
-$latex = 'lualatex -synctex=1 -halt-on-error -file-line-error %O %S';
-$max_repeat = 5;
+use v5.10;
+use experimental qw(smartmatch);
 
-# $lualatex = 'lualatex -synctex=1 -halt-on-error -file-line-error -interaction=nonstopmode %O %S';
+$do_cd = 1;
 
-# BibTeX
-$bibtex = 'pbibtex %O %S';
-$biber = 'biber --bblencoding=utf8 -u -U --output_safechars %O %S';
+# lualatex
+$lualatex     = 'lualatex -synctex=1 -file-line-error -interaction=nonstopmode';
+$pdflualatex  = $lualatex;
 
-# index
-$makeindex = 'mendex %O -o %D %S';
+# bib
+$biber        = 'biber %O --bblencoding=utf8 -u -U --output_safechars %B';
+$bibtex       = 'bibtex %O %B';
 
-# DVI / PDF
-$dvipdf = 'dvipdfmx %O -o %D %S';
-$pdf_mode = 3;
+$makeindex    = 'mendex %O -o %D %S';
+$out_dir = 'out';
+
+$max_repeat   = 5;
+$pdf_mode     = 4;
+
 
 # preview
 $pvc_view_file_via_temporary = 0;
-if ($^O eq 'linux') {
-    $dvi_previewer = "xdg-open %S";
-    $pdf_previewer = "xdg-open %S";
-} elsif ($^O eq 'darwin') {
-    $dvi_previewer = "open %S";
-    $pdf_previewer = "open %S";
-} else {
-    $dvi_previewer = "start %S";
-    $pdf_previewer = "start %S";
+given ($^O) {
+    when (/MSWin32/) {
+        $pdf_previewer = 'start %S';
+    }
+    when (/linux/) {
+        $pdf_previewer = 'evince %S';
+    }
+    when (/darwin/) {
+        $pdf_previewer = 'open %S';
+    }
+    default {
+        $pdf_previewer = 'start %S';
+    }
 }
 
-# clean up
-$clean_full_ext = "%R.synctex.gz"
+# local config
+$local_latexmkrc_path = './.latexmkrc.local';
+require $local_latexmkrc_path if -e $local_latexmkrc_path;
+
+# 解説はCaffeLatte memoで

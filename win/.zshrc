@@ -10,7 +10,7 @@ eval "$(starship init zsh)"
 alias pbcopy='clip.exe'
 
 # poetry path
-# export PATH="/home/cafelatte/.local/bin:$PATH"
+# export PATH="/home/cafe/.local/bin:$PATH"
 # fpath+=~/.zfunc
 
 #alias
@@ -26,6 +26,7 @@ fi
 
 # alias
 alias relogin='exec $SHELL -l'
+alias q='exit'
 alias memoryfree='sudo sh -c "echo 3 > /proc/sys/vm/drop_caches"'
 alias python='python3'
 alias pip='pip3'
@@ -33,7 +34,7 @@ alias ls='ls --color=auto -F'
 alias ll='ls --color=auto -F -a'
 alias latest='cd `ls -t | head -1`'
 alias img='irfanview'
-alias expl='explorer.exe'
+alias expl='/mnt/c/windows/explorer.exe'
 
 
 # atcoder
@@ -60,8 +61,6 @@ setopt hist_ignore_dups
 # spaceから始まるものを残さない
 setopt hist_ignore_space
 
-# cdしたdirをディレクトリスタックに追加
-setopt auto_pushd
 
 # pushdしたときに すでにスタックに含まれていたら追加しない
 setopt pushd_ignore_dups
@@ -87,6 +86,21 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
+
+
+# cdしたdirをディレクトリスタックに追加
+# tabで補完
+setopt AUTO_PUSHD
+DIRSTACKSIZE=100
+
+zstyle ':completion:*' menu select
+zstyle ':completion:*:cd:*' ignore-parents parent pwd
+zstyle ':completion:*:descriptions' format '%BCompleting%b %U%d%u'
+
+
+
+
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -100,6 +114,12 @@ alias nfzf='nvim $(fzf-tmux -p 80% --multi --preview "bat --color=always --style
 export FZF_CTRL_T_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 export FZF_CTRL_T_OPTS='--select-1 --exit-0 --preview "bat --color=always --style=numbers --line-range :500 {}"'
 
+fd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
+}
 
 # bun completions
 [ -s "/home/cafe/.bun/_bun" ] && source "/home/cafe/.bun/_bun"
@@ -107,3 +127,8 @@ export FZF_CTRL_T_OPTS='--select-1 --exit-0 --preview "bat --color=always --styl
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+
+
+# raylib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
