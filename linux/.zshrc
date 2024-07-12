@@ -94,7 +94,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
-
+# SSHの起動と鍵の追加
+if [ -z "$SSH_AUTH_SOCK" ]; then
+    eval "$(ssh-agent -s)"
+    ssh-add ~/.ssh/lab2
+fi
 
 ##### fzf
 alias nfzf='nvim $(fzf-tmux -p 80% --multi --preview "bat --color=always --style=numbers --line-range=:500 {}")'
