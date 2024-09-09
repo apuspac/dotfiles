@@ -51,7 +51,7 @@ return {
         vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
         vim.keymap.set("n", "<leader>fn", builtin.help_tags, {})
 
-        vim.keymap.set("n", "<C-p>", builtin.find_files, {}) -- vscode
+        -- vim.keymap.set("n", "<C-p>", builtin.find_files, {}) -- vscode
 
     end,
 }

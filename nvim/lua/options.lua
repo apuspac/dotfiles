@@ -40,36 +40,12 @@ vim.opt.wrapscan = true         -- 検索が末尾までいったら先頭から
 vim.opt.clipboard:append({unnamedeplus = true})         -- クリップボード連携
 
 -- vim.opt.hidden = true           -- 非表示バッファを閉じるときに保存する
-
-
-
-
-
-
 vim.opt.makeprg='cd build && make'
--- project 固有の設定
--- 起動がめちゃ遅くなったので コメントアウト
--- local function vimrc_local(loc)
---     local files = vim.fn.findfile('.vim/init_local.lua', vim.fn.escape(loc, ' ') .. ';', -1)
---     for i = #files, 1, -1 do
---         if vim.fn.filereadable(files[i]) == 1 then
---             vim.cmd('source ' .. files[i])
---         end
---     end
--- end
---
--- vim.api.nvim_create_augroup('vimrc_local', {clear = true})
--- vim.api.nvim_create_autocmd({"BufNewFile", "BufReadPost"},{
---     group = 'vimrc_local',
---     callback = function()
---         vimrc_local(vim.fn.expand('<afile>:p:h'))
---     end
--- })
---
 
 
 
 -- telescope 勝手にinsertモードになる問題
+-- https://github.com/nvim-telescope/telescope.nvim/issues/2027
 vim.api.nvim_create_autocmd("WinLeave", {
   callback = function()
     if vim.bo.ft == "TelescopePrompt" and vim.fn.mode() == "i" then
@@ -77,20 +53,6 @@ vim.api.nvim_create_autocmd("WinLeave", {
     end
   end,
 })
-
-
--- vim.g.mkdp_browserfunc = function(url)
---     local mdp_browser = '/mnt/c/Program Files/Google/Chrome/Application/chrome.exe'
---     local mdp_browser_opts = '--new-window'
---
---     if not vim.fn.filereadable(mdp_browser:gsub('\\ ', ' ')) then
---         mdp_browser = '/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe'
---         mdp_browser_opts = '--new-window'
---     end
---
---     vim.cmd('silent! !' .. mdp_browser .. ' ' .. mdp_browser_opts .. ' ' .. url)
---     vim.cmd('redraw!')
--- end
 
 
 

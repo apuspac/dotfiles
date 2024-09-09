@@ -140,10 +140,11 @@ return {
         vim.keymap.set("x", "ac", "<Plug>(coc-classobj-a)", opts)
         vim.keymap.set("o", "ac", "<Plug>(coc-classobj-a)", opts)
 
+        --- C-d, C-u 派なので、こっちはpopupのスクロールになりそう
+        --- これ、<C-w-w>で、そのwindowの中に移動できるので、それでスクロールする。
+        --- なので、いらないかも?
         -- Remap <C-f> and <C-b> to scroll float windows/popups
         ---@diagnostic disable-next-line: redefined-local
-        --- C-d, C-u 派なので、こっちはpopupのスクロールになりそう
-        --- うごかない。
         local opts = {silent = true, nowait = true, expr = true}
         vim.keymap.set("n", "<C-f>", 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-f>"', opts)
         vim.keymap.set("n", "<C-b>", 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"', opts)
@@ -184,7 +185,7 @@ return {
         -- Manage extensions
         vim.keymap.set("n", "<space>e", ":<C-u>CocList extensions<cr>", opts)
         -- Show commands
-        vim.keymap.set("n", "<space>c", ":<C-u>CocList commands<cr>", opts)
+        -- vim.keymap.set("n", "<space>c", ":<C-u>CocList commands<cr>", opts)
         -- Find symbol of current document
         vim.keymap.set("n", "<space>o", ":<C-u>CocList outline<cr>", opts)
         -- Search workspace symbols
