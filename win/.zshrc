@@ -54,6 +54,9 @@ HISTSIZE=100000
 SACEHIST=100000
 
 
+# path
+export PATH=$HOME/.local/bin:$PATH
+
 # 同じコマンドは追加しないand残さない
 setopt hist_ignore_all_dups
 setopt hist_ignore_dups
@@ -132,3 +135,4 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # raylib
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+
