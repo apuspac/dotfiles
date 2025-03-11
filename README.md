@@ -23,6 +23,14 @@ curl https://sh.rustup.rs -sSf | sh
 ```
 
 sheldon, starship
+
+build-essential入れないと、ccがなくて、installできないと思う。
+pkg-configも無いって言われた。
+libssl-devも無いって言われた。
+```
+sudo apt install build-essential pkg-config libssl-dev
+```
+あとは、install
 ```
 cargo install sheldon
 curl -sS https://starship.rs/install.sh | sh
@@ -30,10 +38,10 @@ curl -sS https://starship.rs/install.sh | sh
 ```
 
 
-
-
 ## symbolic link 
 ```
+mkdir ~/.config/tmux
+mkdir ~/.config/sheldon
 ln -s ~/dotfiles/linux/.zshrc ~/.zshrc
 ln -s ~/dotfiles/common/.tmux.conf ~/.config/tmux/tmux.conf
 ln -s ~/dotfiles/common/plugins.toml ~/.config/sheldon/plugins.toml
@@ -52,6 +60,29 @@ ln -s ~/dotfiles/path/to/.zshrc ~
 ```
 
 
+
+## win terminal
+
+powershellにもstarshipを入れる。
+starship
+```
+winget install starship
+```
+powershellの`$PROFILE`に以下を追加する
+```
+Invoke-Expression (&starship init powershell)
+```
+
+
+Alacritty
+```
+winget install Alacritty
+```
+
+
+
+
+
 winでシンボリックリンク作る
 ```
 mklink linkファイル target(リンク元)のファイル
@@ -68,10 +99,10 @@ chmod u+x nvim.appimage && ./nvim.appimage
 ```
 
 確認できたら、
-`~/Application`
+`~/.app`
 にnvim移動して、シンボリックリンクを通す。 移動させるところは任意。シンボリックリンクもPATHを確認して、いい感じのところに。
 ```
-ln -s ~/Applications/nvim.appimage ~/.local/bin/nvim
+ln -s ~/.app/nvim.appimage ~/.local/bin/nvim
 ```
 
 configファイルは、ディレクトリをリンクする

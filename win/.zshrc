@@ -13,9 +13,6 @@ alias pbcopy='clip.exe'
 # export PATH="/home/cafe/.local/bin:$PATH"
 # fpath+=~/.zfunc
 
-#alias
-alias workspace='cd /media/cafelatte/Lab/workspace'
-
 ###### common
 # tmux 
 # 初回シェル時のみ tmux実行
@@ -35,6 +32,7 @@ alias ll='ls --color=auto -F -a'
 alias latest='cd `ls -t | head -1`'
 alias img='irfanview'
 alias expl='/mnt/c/windows/explorer.exe'
+alias dt='cd ~/dotfiles'
 
 
 # atcoder
@@ -64,13 +62,6 @@ setopt hist_ignore_dups
 # spaceから始まるものを残さない
 setopt hist_ignore_space
 
-
-# pushdしたときに すでにスタックに含まれていたら追加しない
-setopt pushd_ignore_dups
-
-# pathを直接入力してたらcd
-setopt AUTO_CD
-
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'
@@ -90,18 +81,29 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 
+# pushdしたときに すでにスタックに含まれていたら追加しない
+setopt pushd_ignore_dups
+
+# pathを直接入力してたらcd
+setopt AUTO_CD
 
 # cdしたdirをディレクトリスタックに追加
-# tabで補完
-setopt AUTO_PUSHD
+# setopt AUTO_PUSHD
 DIRSTACKSIZE=100
+
+# cdしたら起動
+chpwd() {
+    if [[ $(pwd) != $HOME ]]; then;
+        ls
+    fi
+}
+
+
+
 
 zstyle ':completion:*' menu select
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 zstyle ':completion:*:descriptions' format '%BCompleting%b %U%d%u'
-
-
-
 
 
 export NVM_DIR="$HOME/.nvm"
@@ -131,8 +133,19 @@ fd() {
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+# go
+export PATH=$PATH:~/go/bin
+
+#lazygit
+alias lg='lazygit'
 
 
 # raylib
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+
+# opengl のための設定
+unset LIBGL_ALWAYS_INDIRECT
+
+
+
 

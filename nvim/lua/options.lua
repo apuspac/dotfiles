@@ -3,10 +3,12 @@ vim.g.mapleader = " "     -- Ledar key
 
 
 ------- options
+vim.opt.encoding = 'utf-8'
 
 vim.opt.winblend = 20
 vim.opt.pumblend = 20
 vim.opt.termguicolors = true  -- true color
+
 
 
 vim.opt.number = true   -- 番号表示
@@ -55,4 +57,16 @@ vim.api.nvim_create_autocmd("WinLeave", {
 })
 
 
+vim.api.nvim_create_autocmd(
+    {
+        "BufRead", -- ファイル読み込む
+        "BufNewFile", -- new file作成の時。
+    },
+    {
+        pattern = "*.vert,*.frag,*.comp,*.geom,*.tesc,*.tese", -- このパターンの時適用
+        callback = function() -- ここの関数が実行される
+            vim.bo.filetype = "glsl"
+        end,
+    }
+)
 

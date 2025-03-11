@@ -15,7 +15,8 @@ return {
                 "query",
                 "lua",
                 "typescript",
-                "tsx"
+                "tsx",
+                "glsl",
             },
 
             auto_install = true,
