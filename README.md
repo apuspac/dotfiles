@@ -69,7 +69,7 @@ powershellにもstarshipを入れる。
 starship
 ```
 winget install starship
-```m
+```
 powershellの`$PROFILE`に以下を追加する
 ```
 Invoke-Expression (&starship init powershell)
@@ -81,7 +81,7 @@ Alacritty
 winget install Alacritty
 ```
 
-winでシンボリックリンク作る
+winでシンボリックリンク作るには
 ```
 mklink linkファイル target(リンク元)のファイル
 mklink \path\.wslconfig \path\dotfiles\win\.wslconfig
