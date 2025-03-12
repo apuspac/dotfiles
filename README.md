@@ -1,10 +1,12 @@
 # dotfiles
 
-wsl含めたwin環境と、ubuntuのみの2つで分けている。
+以下自分用メモ:  
+
+wsl含めたwin環境と、LABのubuntuの2つで分けている。
 変更するときにシンボリックリンク外れちゃうので、場所の移動は慎重に。
 
 
-以下の内容を自動化できるようにする(予定)
+自動化できるようにしたいなぁ。
 
 ## zsh + sheldon + starship
 zsh と shell change
@@ -67,7 +69,7 @@ powershellにもstarshipを入れる。
 starship
 ```
 winget install starship
-```
+```m
 powershellの`$PROFILE`に以下を追加する
 ```
 Invoke-Expression (&starship init powershell)
@@ -78,10 +80,6 @@ Alacritty
 ```
 winget install Alacritty
 ```
-
-
-
-
 
 winでシンボリックリンク作る
 ```
@@ -100,7 +98,7 @@ chmod u+x nvim.appimage && ./nvim.appimage
 
 確認できたら、
 `~/.app`
-にnvim移動して、シンボリックリンクを通す。 移動させるところは任意。シンボリックリンクもPATHを確認して、いい感じのところに。
+にnvim移動して、シンボリックリンクを通す。 移動させるところは任意。シンボリックリンクもPATHを確認して、分かりやすいところに。
 ```
 ln -s ~/.app/nvim.appimage ~/.local/bin/nvim
 ```
