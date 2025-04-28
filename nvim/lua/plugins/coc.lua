@@ -207,6 +207,10 @@ return {
     end
 }
 
+
+
+
+
 -- NOTE: coc-copilot で comflict 起こしてるっぽい？ので、 コメントアウトしている。
 -- あまり困っていない。
 -- local function check_backspace()

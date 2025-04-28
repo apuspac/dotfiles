@@ -1,6 +1,5 @@
 return {
     "nvim-treesitter/nvim-treesitter",
-    tag = "v0.9.2",
     config = function()
         vim.cmd([[TSUpdate]])
 
@@ -31,3 +30,5 @@ return {
         })
     end
 }
+
+
