@@ -2,7 +2,7 @@
 TERM = "alacritty"
 
 [font]
-    size = 10.5
+size = 10.5
 
 
 [font.normal]

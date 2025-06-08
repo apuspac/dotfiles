@@ -119,17 +119,22 @@ export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git/*'"
 export FZF_DEFAULT_OPTS='--no-separator --no-scrollbar --border=none'
 
 # 履歴表示
-# NOTE: tmux使ってるときにsession間で履歴共有されないのなんとかして。
 export FZF_CTRL_R_OPTS="--reverse --preview 'bat --color=always --language=sh --style numbers' --preview-window=border-sharp,down:10:hidden:wrap --bind '?:toggle-preview'"
 
 # export FZF_CTRL_T_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 export FZF_CTRL_T_OPTS='--select-1 --exit-0 --preview "bat --color=always --style=numbers --line-range :500 {}" --preview-window=border-sharp,right:50%'
 
-export FZF_ALT_C_COMMAND="fd -t d --hidden"
+export FZF_ALT_C_COMMAND="fd --type d --hidden --follow --exclude .git"
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200' --preview-window=border-sharp,right:50%"
 
 # nvim fzf
-alias nfzf='nvim $(fzf-tmux -p 80% --multi --preview "bat --color=always --style=numbers --line-range=:500 {}")'
+nfzf() {
+    local selected
+    selected=$(fzf-tmux -p 80% --reverse --multi --preview "bat --color=always --style=numbers --line-range=:500 {}")
+    if [ -n "$selected" ]; then
+        nvim $selected
+    fi
+}
 
 # dirを検索して移動
 fdf() {

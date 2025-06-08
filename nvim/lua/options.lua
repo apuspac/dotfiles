@@ -9,7 +9,7 @@ vim.opt.winblend = 20
 vim.opt.pumblend = 20
 vim.opt.termguicolors = true  -- true color
 
-
+vim.opt.laststatus = 3          -- ステータスバーを常に表示
 
 vim.opt.number = true   -- 番号表示
 -- vim.opt.relativenumber = true
