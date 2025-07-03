@@ -128,7 +128,7 @@ export FZF_ALT_C_COMMAND="fd --type d --hidden --follow --exclude .git"
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200' --preview-window=border-sharp,right:50%"
 
 # nvim fzf
-nfzf() {
+nf() {
     local selected
     selected=$(fzf-tmux -p 80% --reverse --multi --preview "bat --color=always --style=numbers --line-range=:500 {}")
     if [ -n "$selected" ]; then
@@ -143,7 +143,7 @@ fdf() {
 }
 
 # ghq + fzf
-hfzf() {
+g() {
     local repodir=$(ghq list | fzf-tmux -p 80% --multi +1 --preview 'tree -C {} | head -200') && cd $(ghq root)/$repodir
 }
 
@@ -160,6 +160,10 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # go
 export PATH=$PATH:~/go/bin
 
+# mise
+eval "$(~/.local/bin/mise activate)"
+
+
 #lazygit
 alias lg='lazygit'
 
@@ -173,3 +177,5 @@ unset LIBGL_ALWAYS_INDIRECT
 
 
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
