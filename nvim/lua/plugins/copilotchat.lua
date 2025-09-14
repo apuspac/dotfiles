@@ -1,6 +1,9 @@
 return {
     "CopilotC-Nvim/CopilotChat.nvim",
     branch = "main",
+
+    enabled = false,
+
     dependencies = {
       { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
       { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper

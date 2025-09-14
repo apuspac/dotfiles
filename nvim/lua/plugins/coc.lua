@@ -1,5 +1,6 @@
 return {
     "neoclide/coc.nvim",
+    enabled = false,
     config = function()
         vim.g.coc_global_extensions = {
             --basic

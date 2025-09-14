@@ -1,15 +1,10 @@
-###### sheldon
+## eval
 eval "$(sheldon source)"
-
-###### starship
 eval "$(starship init zsh)"
 
-###### wsl
 
-# clip board
-alias pbcopy='clip.exe'
 
-###### common
+# common
 # tmux 
 # 初回シェル時のみ tmux実行
 if [ $SHLVL = 1 ]; then
@@ -18,7 +13,7 @@ fi
 
 
 # alias
-alias relogin='exec $SHELL -l'
+alias relog='exec $SHELL -l'
 alias q='exit'
 alias memoryfree='sudo sh -c "echo 3 > /proc/sys/vm/drop_caches"'
 alias python='python3'
@@ -26,9 +21,10 @@ alias pip='pip3'
 alias ls='ls --color=auto -F'
 alias ll='ls --color=auto -F -a'
 alias latest='cd `ls -t | head -1`'
-alias img='irfanview'
 alias expl='/mnt/c/windows/explorer.exe'
-alias dotfiles='cd ~/dotfiles'
+
+# clip board
+alias pbcopy='clip.exe'
 
 
 # atcoder
@@ -37,7 +33,7 @@ alias oj t=''
 
 
 
-###### zsh
+# zsh
 autoload -Uz compinit && compinit
 
 # history
@@ -136,17 +132,69 @@ nf() {
     fi
 }
 
+
 # dirを検索して移動
 fdf() {
-    local dir
-    dir=$(fd --type d --hidden --follow --exclude .git | fzf-tmux -p 80% --reverse --preview 'tree -C {} | head -200') && cd "$dir"
+    local fddir=$(fd --type d --hidden --follow --exclude .git | fzf-tmux -p 80% --reverse --preview 'tree -C {} | head -200')
+    if [ -n "$fddir" ]; then
+        cd "$fddir"
+    fi
 }
+
 
 # ghq + fzf
 g() {
-    local repodir=$(ghq list | fzf-tmux -p 80% --multi +1 --preview 'tree -C {} | head -200') && cd $(ghq root)/$repodir
+    local repodir=$(ghq list --full-path | \
+        awk -F'/' '{
+            # パスを/で分割して、最後の3要素（github.com/Author/Repo）を取得
+            if (NF >= 3) {
+                print $(NF-2)"/"$(NF-1)"/"$NF "\t" $0
+            }
+        }' | \
+        fzf-tmux -p 80% --multi +1 --with-nth=1 \
+        --preview 'echo {2} | xargs -I {} tree -C {} | head -200')
+        # 省略のpath <tab> 絶対path をawkで作って、
+        # fzf-tmuxには前半、previewには 後半をxargsで{}に代入して渡している
+
+
+    if [ -n "$repodir" ]; then
+        # タブで分割して絶対パス部分の2つめを取得
+        local abs_path=$(echo "$repodir" | cut -f2)
+        cd "$abs_path"
+    fi
 }
 
+
+# ghq リポジトリ選択関数
+ghq_select() {
+    ghq list --full-path | \
+        awk -F'/' '{
+            if (NF >= 3) {
+                print $(NF-2)"/"$(NF-1)"/"$NF "\t" $0
+            }
+        }' | \
+        fzf-tmux -p 80% --multi +1 --with-nth=1 \
+        --preview 'echo {2} | xargs -I {} tree -C {} | head -200' | \
+        cut -f2
+}
+
+
+fssh() {
+    local sshLoginHost
+    sshLoginHost=`cat ~/.ssh/config | grep -i ^host | awk '{print $2}' | fzf-tmux -p 80% --reverse`
+
+    if [ "$sshLoginHost" = "" ]; then
+        # ex) Ctrl-C.
+        return 1
+    fi
+
+    ssh ${sshLoginHost}
+}
+
+
+# dir選択
+# -g globalにしないと 途中で 展開できない
+alias -g FD='$(fd --type d --hidden --follow --exclude .git | fzf-tmux -p 80% --reverse --preview "tree -C {} | head -200")'
 
 
 
@@ -176,6 +224,5 @@ unset LIBGL_ALWAYS_INDIRECT
 
 
 
-
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+

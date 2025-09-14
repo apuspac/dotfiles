@@ -50,8 +50,13 @@ return {
         vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
         vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
         vim.keymap.set("n", "<leader>fn", builtin.help_tags, {})
-
         -- vim.keymap.set("n", "<C-p>", builtin.find_files, {}) -- vscode
+
+        vim.keymap.set('n', 'gd', '<cmd>Telescope lsp_definitions<cr>')
+        vim.keymap.set('n', 'gD', '<cmd>Telescope lsp_declarations<cr>') 
+        vim.keymap.set('n', 'gi', '<cmd>Telescope lsp_implementations<cr>')
+        vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<cr>')
+        vim.keymap.set('n', 'gt', '<cmd>Telescope lsp_type_definitions<cr>')
 
     end,
 }
