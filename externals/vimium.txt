@@ -1,0 +1,12 @@
+# Insert your preferred key mappings here.
+
+
+# Custom key mappingsの入力タブ
+# Insert your preferred key mappings here.
+map h goBack
+map l goForward
+
+unmap u
+unmap d
+map <c-u> scrollPageUp
+map <c-d> scrollPageDown
