@@ -13,6 +13,5 @@ externals
 
 
 {{- if eq .chezmoi.os "linux" }}
-
-
+externals
 {{- end }}

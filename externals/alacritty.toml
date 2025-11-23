@@ -1,0 +1,23 @@
+[env]
+TERM = "alacritty"
+
+[font]
+size = 10.5
+
+
+[font.normal]
+# family = "HackGen35 Console NF"
+family = "Moralerspace Neon NF"
+style = "Regular"
+
+[scrolling]
+history = 10000
+multiplier = 5
+
+[shell]
+program = "/Windows/System32/wsl.exe ~"
+
+[window]
+opacity = 0.98
+startup_mode = "Maximized"
+title = "Starbucks"
