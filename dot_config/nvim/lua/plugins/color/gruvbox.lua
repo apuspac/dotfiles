@@ -5,6 +5,6 @@ return{
         -- })
         vim.g.gruvbox_material_background = "hard"
         vim.g.gruvbox_matrial_foreground = "mix"
-        vim.cmd([[colorscheme gruvbox-material]])
+        -- vim.cmd([[colorscheme gruvbox-material]])
     end
 }

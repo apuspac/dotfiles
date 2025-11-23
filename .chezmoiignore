@@ -1,0 +1,18 @@
+{{- if eq .chezmoi.os "windows" }}
+.config/nvim
+.config/sheldon
+.config/tmux
+.gitconfig
+.latexmkrc
+.vimrc
+.zshrc
+.zshrc.local
+externals
+{{- end }}
+
+
+
+{{- if eq .chezmoi.os "linux" }}
+
+
+{{- end }}

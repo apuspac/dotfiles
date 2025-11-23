@@ -2,11 +2,17 @@
 	email = 21313205+apuspac@users.noreply.github.com
 	name = apuspac
 
+[core]
+	editor = vim
 
 
 [init]
 	defaultBranch = main
+
 [ghq]
+	root = ~/src
+
+[ghq "https://github.com/37nui"]
 	root = ~/src
 
 [url "git@github.com:"]
@@ -15,4 +21,10 @@
 ; pushのみをsshでやる場合。 
 ; [url "git@github.com:"]
 ;   pushInsteadOf= https://github.com/
+
+
+[alias]
+    sw = switch
+    st = status
+
 

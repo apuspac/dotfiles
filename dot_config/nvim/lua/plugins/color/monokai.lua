@@ -5,6 +5,6 @@ return{
             filter = "machine",
             -- filter = "spectrum",
         })
-        -- vim.cmd([[colorscheme monokai-pro]])
+        vim.cmd([[colorscheme monokai-pro]])
     end,
 }

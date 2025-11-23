@@ -39,7 +39,7 @@ vim.opt.smartcase = true        -- 大文字で検索したら区別をつける
 vim.opt.wrapscan = true         -- 検索が末尾までいったら先頭から検索
 
 
-vim.opt.clipboard:append({unnamedeplus = true})         -- クリップボード連携
+-- vim.opt.clipboard:append({unnamedplus = true})         -- クリップボード連携
 
 -- vim.opt.hidden = true           -- 非表示バッファを閉じるときに保存する
 vim.opt.makeprg='cd build && make'
@@ -69,4 +69,15 @@ vim.api.nvim_create_autocmd(
         end,
     }
 )
+
+-- LSP Inlay Hints
+-- LSPがアタッチされた時に自動的にInlay Hintsを有効化
+vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function(args)
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        if client and client.server_capabilities.inlayHintProvider then
+            vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
+        end
+    end,
+})
 

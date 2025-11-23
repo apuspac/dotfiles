@@ -1,3 +1,5 @@
+
+-- statusline 
 return{
     "nvim-lualine/lualine.nvim",
     dependencies = {

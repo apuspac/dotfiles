@@ -22,4 +22,8 @@ fi
 # rust
 curl https://sh.rustup.rs -sSf | sh
 
+# go
+brew install go
 
+
+echo "✅ Base packages installation complete."

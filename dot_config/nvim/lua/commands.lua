@@ -9,3 +9,4 @@ vim.api.nvim_create_user_command('Opencode', function()
   -- vim.fn.system('code "' .. workspace .. '" "' .. '--goto' ..  '" "' .. file .. ':' .. line .. '"')
   -- vim.fn.system('code ' .. workspace .. file .. ':' .. line)
 end, {})
+

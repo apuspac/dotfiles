@@ -1,0 +1,13 @@
+set number
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set smartindent
+set backspace=indent,eol,start
+set fenc=utf-8
+set autoread
+set hidden
+set showcmd
+set virtualedit=onemore
+set wrapscan
+set hlsearch
